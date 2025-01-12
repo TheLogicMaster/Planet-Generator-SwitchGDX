@@ -62,7 +62,7 @@ public class Orbiter extends SpaceObject {
 
         // Set sprite position for 2D rendering and zCoord for ordering
         getSprite().setPosition(Scene.CENTER_X - getSprite().getWidth()/2 + position.x, Scene.CENTER_Y - getSprite().getHeight()/2 + position.y + yOffset);
-        setZPos((int)position.z);
+        setZPos(Float.isNaN(position.z) ? 0 : (int)position.z); // Transpiler non-conformance bug
     }
 
     public float getAngularVelocity() {
